@@ -1,0 +1,19 @@
+.bg-home {
+    background-image: url(../../assets/home/background-home-mobile.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+@media screen and (min-width: 768px) {
+    .bg-home {
+        background-image: url(../../assets/home/background-home-tablet.jpg);
+    }
+}
+
+
+@media screen and (min-width: 1024px) {
+    .bg-home {
+        background-image: url(../../assets/home/background-home-desktop.jpg);
+    }
+}
