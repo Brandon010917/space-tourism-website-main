@@ -10,7 +10,8 @@ module.exports = {
     },
     fontFamily: {
       'barlow-condensed': ['Barlow Condensed', 'sans-serif'],
-      bellefair: ['Bellefair', 'sans-serif']
+      bellefair: ['Bellefair', 'sans-serif'],
+      barlow: ['Barlow', 'sans-serif']
     }
   },
   plugins: []

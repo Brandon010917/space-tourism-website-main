@@ -1,7 +1,20 @@
+// import axios from 'axios'
+// import { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import iconClose from '../../../assets/shared/icon-close.svg'
 
 const NavbarMobile = () => {
+  // const [data, setData] = useState(null)
+
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     const { data } = await axios('./src/data.json')
+
+  //   }
+
+  //   getData()
+  // }, [])
+
   const links = ['home', 'destination', 'crew', 'technology']
 
   return (
