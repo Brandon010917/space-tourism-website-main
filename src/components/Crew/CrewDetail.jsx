@@ -8,10 +8,8 @@ import CrewItem from "./CrewItem";
 const containerVariants = {
   hidden: {
     opacity: 0,
-    y: 100,
   },
   show: {
-    y: 0,
     opacity: 1,
     transition: {
       duration: 1.5,
@@ -19,7 +17,6 @@ const containerVariants = {
     },
   },
   exit: {
-    y: 100,
     opacity: 0,
     transition: { ease: "linear", duration: 0.8 },
   },
@@ -49,8 +46,6 @@ const CrewDetail = () => {
       }
     });
   }, [crew, crewName]);
-
-  console.log(crewDetail);
 
   return (
     <motion.div

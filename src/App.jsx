@@ -9,6 +9,8 @@ import Technology from "./views/Technology";
 import Header from "./components/UI/Header/Header";
 import DestinationDetail from "./components/Destination/DestinationDetail";
 import CrewDetail from "./components/Crew/CrewDetail";
+import TechnologyDetail from "./components/Technology/TechnologyDetail";
+// Framer motion
 import { AnimatePresence } from "framer-motion";
 
 function App() {
@@ -26,7 +28,9 @@ function App() {
           <Route path="/destinations" element={<Destination />}>
             <Route path=":destinationName" element={<DestinationDetail />} />
           </Route>
-          <Route path="/technology" element={<Technology />} />
+          <Route path="/technology" element={<Technology />}>
+            <Route path=":technologyName" element={<TechnologyDetail />} />
+          </Route>
         </Routes>
       </AnimatePresence>
     </>

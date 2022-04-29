@@ -19,7 +19,7 @@ const NavbarDesktop = () => {
 
   return (
     <nav className="bg-white bg-opacity-[0.04] backdrop-blur-3xl hidden md:block text-white min-w-[450px] px-12 pt-10 lg:w-full">
-      <ul className="flex justify-between items-center gap-9 xl:gap-12">
+      <ul className="flex justify-between items-center gap-9 xl:gap-12 lg:justify-evenly">
         <li>
           <NavLink
             to="/"

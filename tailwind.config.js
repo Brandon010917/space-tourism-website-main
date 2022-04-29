@@ -1,18 +1,16 @@
-
 module.exports = {
-  content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     colors: {
-      black: '#0B0D17',
-      gray: '#D0D6F9',
-      white: '#FFFFFF',
-      'white-text': '#D0D6F9'
+      black: "#0B0D17",
+      gray: "#D0D6F9",
+      white: "#FFFFFF",
     },
     fontFamily: {
-      'barlow-condensed': ['Barlow Condensed', 'sans-serif'],
-      bellefair: ['Bellefair', 'sans-serif'],
-      barlow: ['Barlow', 'sans-serif']
-    }
+      "barlow-condensed": ["Barlow Condensed", "sans-serif"],
+      bellefair: ["Bellefair", "sans-serif"],
+      barlow: ["Barlow", "sans-serif"],
+    },
   },
-  plugins: []
-}
+  plugins: [],
+};

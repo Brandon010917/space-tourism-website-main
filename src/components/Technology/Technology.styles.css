@@ -1,0 +1,19 @@
+.bg-technology {
+    background-image: url(../../assets/technology/background-technology-mobile.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+@media screen and (min-width: 768px) {
+    .bg-technology {
+        background-image: url(../../assets/technology/background-technology-tablet.jpg);
+    }
+}
+
+
+@media screen and (min-width: 1024px) {
+    .bg-technology {
+        background-image: url(../../assets/technology/background-technology-desktop.jpg);
+    }
+}
