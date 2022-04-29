@@ -16,8 +16,13 @@ const containerVariants = {
     y: 0,
     transition: {
       duration: 1.5,
-      ease: "linear",
+      ease: "easeIn",
     },
+  },
+  exit: {
+    opacity: 0,
+    y: 100,
+    transition: { ease: "easeInOut", duration: 0.8 },
   },
 };
 
@@ -46,10 +51,15 @@ const DestinationDetail = () => {
   }, [destinations, destinationName]);
 
   return (
-    <motion.div variants={containerVariants} initial="hidden" animate="show">
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="show"
+      exit="exit"
+    >
       {destinationDetail && (
-        <div className="md:px-[59.5px] lg:mt-16 lg:flex lg:px-0 lg:justify-end lg:items-end lg:gap-[157px]">
-          <div className="max-w-[170px] max-h-[170px] mx-auto mt-8 mb-[26px] md:max-w-[300px] md:max-h-[300px] md:mb-[53px] lg:max-w-[445px] lg:max-h-[445px] lg:mr-0">
+        <div className="md:px-[59.5px] lg:mt-16 lg:flex lg:px-0 lg:justify-end lg:gap-8 lg:items-center xl:items-end xl:gap-[157px] ">
+          <div className="max-w-[170px] max-h-[170px] mx-auto mt-8 mb-[26px] md:max-w-[300px] md:max-h-[300px] md:mb-[53px] lg:max-w-[445px] lg:max-h-[445px] lg:mr-0 ">
             <img
               src={`../src/${destinationDetail.images.webp}`}
               alt={`Image ${destinationDetail.name}`}

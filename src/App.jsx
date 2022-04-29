@@ -1,5 +1,5 @@
-import "./App.css";
-import { Routes, Route } from "react-router-dom";
+// React router
+import { Routes, Route, useLocation } from "react-router-dom";
 // Views
 import Home from "./views/Home";
 import Crew from "./views/Crew";
@@ -8,19 +8,27 @@ import Technology from "./views/Technology";
 // Components
 import Header from "./components/UI/Header/Header";
 import DestinationDetail from "./components/Destination/DestinationDetail";
+import CrewDetail from "./components/Crew/CrewDetail";
+import { AnimatePresence } from "framer-motion";
 
 function App() {
+  const location = useLocation();
+
   return (
     <>
       <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/crew" element={<Crew />} />
-        <Route path="/destinations" element={<Destination />}>
-          <Route path=":destinationName" element={<DestinationDetail />} />
-        </Route>
-        <Route path="/technology" element={<Technology />} />
-      </Routes>
+      <AnimatePresence exitBeforeEnter>
+        <Routes key={location.key} location={location}>
+          <Route path="/" element={<Home />} />
+          <Route path="/crew" element={<Crew />}>
+            <Route path=":crewName" element={<CrewDetail />} />
+          </Route>
+          <Route path="/destinations" element={<Destination />}>
+            <Route path=":destinationName" element={<DestinationDetail />} />
+          </Route>
+          <Route path="/technology" element={<Technology />} />
+        </Routes>
+      </AnimatePresence>
     </>
   );
 }

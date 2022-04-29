@@ -7,8 +7,6 @@ const NavbarDesktop = () => {
 
   const location = useLocation();
 
-  console.log(location);
-
   useEffect(() => {
     const getData = async () => {
       const { data } = await axios("../src/data.json");
@@ -50,7 +48,7 @@ const NavbarDesktop = () => {
                   }`}
                 >
                   <span className="hidden lg:inline-block mr-3 font-bold">
-                    0{`${i}`}
+                    0{`${i + 1}`}
                   </span>
                   {key}
                 </NavLink>
