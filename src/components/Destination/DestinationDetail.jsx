@@ -37,8 +37,6 @@ const DestinationDetail = () => {
     });
   }, [destinationName]);
 
-  console.log(destinationDetail);
-
   return (
     <motion.div
       variants={containerVariants}

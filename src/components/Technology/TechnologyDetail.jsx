@@ -50,10 +50,10 @@ const TechnologyDetail = () => {
             <picture class="illustration">
               <source
                 media="(min-width: 1024px)"
-                srcset={`../src/${technologyDetail.images.portrait}`}
+                srcset={technologyDetail.images.portrait}
               />
               <img
-                src={`../src/${technologyDetail.images.landscape}`}
+                src={technologyDetail.images.landscape}
                 alt={`Image ${technologyDetail.name}`}
                 loading="lazy"
                 className="min-w-[100vw] h-auto md:max-h-[572px] lg:min-w-0 lg:max-w-[515px] lg:max-h-[527px]"
