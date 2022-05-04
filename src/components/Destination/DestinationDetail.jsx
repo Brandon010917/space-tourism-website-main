@@ -1,10 +1,11 @@
 import axios from "axios";
 import { motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import DestinationDescription from "./DestinationDescription";
 import DestinationItem from "./DestinationItem";
 import DestinationStatistics from "./DestinationStatistics";
+import destinations from "./destinationsData.js";
 
 const containerVariants = {
   hidden: {
@@ -24,28 +25,19 @@ const containerVariants = {
 };
 
 const DestinationDetail = () => {
-  const { destinationName } = useParams();
-
-  const [destinations, setDestinations] = useState([]);
   const [destinationDetail, setDestinationDetail] = useState(null);
 
-  useEffect(() => {
-    const getData = async () => {
-      const { data } = await axios("../src/data.json");
-
-      setDestinations(data.destinations);
-    };
-
-    getData();
-  }, []);
+  const { destinationName } = useParams();
 
   useEffect(() => {
     destinations.forEach((destination) => {
       if (destination.name.toLowerCase() === destinationName) {
-        setDestinationDetail(destination);
+        return setDestinationDetail(destination);
       }
     });
-  }, [destinations, destinationName]);
+  }, [destinationName]);
+
+  console.log(destinationDetail);
 
   return (
     <motion.div

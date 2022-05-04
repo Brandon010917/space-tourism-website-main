@@ -34,7 +34,7 @@ const Home = () => {
           <h2 className="text-white font-bellefair my-4 text-[80px] leading-[100px] md:text-[150px] md:leading-[150px] lg:text-[120px] lg:leading-[140px] xl:text-[150px] xl:leading-[171.9px]">
             SPACE
           </h2>
-          <p className="font-barlow-condensed text-[15px] leading-[25px] md:text-[16px] md:leading-[28px] lg:text-[18px] lg:leading-[32px]">
+          <p className="font-barlow text-[15px] leading-[25px] md:text-[16px] md:leading-[28px] lg:text-[18px] lg:leading-[32px]">
             Let’s face it; if you want to go to space, you might as well
             genuinely go to outer space and not hover kind of on the edge of it.
             Well sit back, and relax because we’ll give you a truly out of this

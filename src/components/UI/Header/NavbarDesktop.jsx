@@ -2,21 +2,25 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 
+const data = {
+  destinations: [
+    {
+      name: "Moon",
+    },
+  ],
+  crew: [
+    {
+      name: "Douglas Hurley",
+    },
+  ],
+  technology: [
+    {
+      name: "Launch vehicle",
+    },
+  ],
+};
+
 const NavbarDesktop = () => {
-  const [data, setData] = useState(null);
-
-  const location = useLocation();
-
-  useEffect(() => {
-    const getData = async () => {
-      const { data } = await axios("../src/data.json");
-
-      setData(data);
-    };
-
-    getData();
-  }, []);
-
   return (
     <nav className="bg-white bg-opacity-[0.04] backdrop-blur-3xl hidden md:block text-white min-w-[450px] px-12 pt-10 lg:w-full">
       <ul className="flex justify-between items-center gap-9 xl:gap-12 lg:justify-evenly">

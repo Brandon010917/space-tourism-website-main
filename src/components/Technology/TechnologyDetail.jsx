@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import TechnologyDescription from "./TechnologyDescription";
 import TechnologyItem from "./TechnologyItem";
+import technologies from "./technologyData";
 
 const containerVariants = {
   hidden: {
@@ -25,18 +26,7 @@ const containerVariants = {
 const TechnologyDetail = () => {
   const { technologyName } = useParams();
 
-  const [technologies, setTechnologies] = useState([]);
   const [technologyDetail, setTechnologyDetail] = useState(null);
-
-  useEffect(() => {
-    const getData = async () => {
-      const { data } = await axios("../src/data.json");
-
-      setTechnologies(data.technology);
-    };
-
-    getData();
-  }, []);
 
   useEffect(() => {
     technologies.forEach((technology) => {

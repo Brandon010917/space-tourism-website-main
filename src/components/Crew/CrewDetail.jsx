@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import CrewBio from "./CrewBio";
 import CrewItem from "./CrewItem";
+import crew from "./crewData";
 
 const containerVariants = {
   hidden: {
@@ -23,20 +24,9 @@ const containerVariants = {
 };
 
 const CrewDetail = () => {
-  const { crewName } = useParams();
-
-  const [crew, setCrew] = useState([]);
   const [crewDetail, setCrewDetail] = useState(null);
 
-  useEffect(() => {
-    const getData = async () => {
-      const { data } = await axios("../src/data.json");
-
-      setCrew(data.crew);
-    };
-
-    getData();
-  }, []);
+  const { crewName } = useParams();
 
   useEffect(() => {
     crew.forEach((crew) => {
