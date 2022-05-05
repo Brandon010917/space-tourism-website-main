@@ -1,10 +1,18 @@
+import { useState } from "react";
+// Icons
 import logo from "../../../assets/shared/logo.svg";
 import iconHamburger from "../../../assets/shared/icon-hamburger.svg";
 // Components
-// import NavbarMobile from './NavbarMobile'
+import NavbarMobile from "./NavbarMobile";
 import NavbarDesktop from "./NavbarDesktop";
 
 const Header = () => {
+  const [isOpenNavbar, setIsOpenNavbar] = useState(false);
+
+  const navbarMobileHandler = () => {
+    setIsOpenNavbar(!isOpenNavbar);
+  };
+
   return (
     <header className="w-full flex justify-between items-center p-6 absolute z-20 md:p-0 md:pl-10">
       {/* Logo */}
@@ -17,10 +25,19 @@ const Header = () => {
       </div>
       {/* Icon Hamburger */}
       <div className="md:hidden">
-        <img src={iconHamburger} alt="Icon Hamburger" />
+        <img
+          src={iconHamburger}
+          alt="Icon Hamburger"
+          onClick={navbarMobileHandler}
+          className="cursor-pointer"
+        />
       </div>
-      {/* <NavbarMobile /> */}
+      {/* Navbar Mobile */}
+      {isOpenNavbar && (
+        <NavbarMobile navbarMobileHandler={navbarMobileHandler} />
+      )}
       <hr className="hidden lg:block lg:min-w-[300px] xl:min-w-[470px] relative translate-x-3 z-10 text-white text-opacity-25" />
+      {/* Navbar Desktop */}
       <NavbarDesktop />
     </header>
   );

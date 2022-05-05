@@ -1,24 +1,11 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+// React router dom
+import { NavLink } from "react-router-dom";
 
-const data = {
-  destinations: [
-    {
-      name: "Moon",
-    },
-  ],
-  crew: [
-    {
-      name: "Douglas Hurley",
-    },
-  ],
-  technology: [
-    {
-      name: "Launch vehicle",
-    },
-  ],
-};
+const links = [
+  "destinations/moon",
+  "crew/douglas-hurley",
+  "technology/launch-vehicle",
+];
 
 const NavbarDesktop = () => {
   return (
@@ -37,28 +24,27 @@ const NavbarDesktop = () => {
             Home
           </NavLink>
         </li>
-        {data &&
-          Object.keys(data).map((key, i) => {
-            const name = data[key][0].name.toLowerCase().split(" ").join("-");
+        {links.map((link, i) => {
+          const [name, route] = link.split("/");
 
-            return (
-              <li key={key}>
-                <NavLink
-                  to={`/${key}/${name}`}
-                  className={`uppercase font-barlow-condensed tracking-[2.35px] pb-10 inline-block text-sm lg:text-base ${
-                    location.pathname.includes(key)
-                      ? "border-b-[3px] border-white"
-                      : ""
-                  }`}
-                >
-                  <span className="hidden lg:inline-block mr-3 font-bold">
-                    0{`${i + 1}`}
-                  </span>
-                  {key}
-                </NavLink>
-              </li>
-            );
-          })}
+          return (
+            <li key={route}>
+              <NavLink
+                to={`/${link}`}
+                className={`uppercase font-barlow-condensed tracking-[2.35px] pb-10 inline-block text-sm lg:text-base ${
+                  location.pathname.includes(name)
+                    ? "border-b-[3px] border-white"
+                    : ""
+                }`}
+              >
+                <span className="hidden lg:inline-block mr-3 font-bold">
+                  0{`${i + 1}`}
+                </span>
+                {name}
+              </NavLink>
+            </li>
+          );
+        })}
       </ul>
     </nav>
   );

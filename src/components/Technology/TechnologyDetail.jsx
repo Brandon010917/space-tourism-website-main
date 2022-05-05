@@ -1,10 +1,17 @@
-import axios from "axios";
-import { motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+// React router dom
 import { useParams } from "react-router-dom";
+// Framer motion
+import { motion } from "framer-motion";
+// Data
+import technologies from "./technologyData";
+// Components
 import TechnologyDescription from "./TechnologyDescription";
 import TechnologyItem from "./TechnologyItem";
-import technologies from "./technologyData";
+import TechnologyImage from "./TechnologyImage";
+import TechnologyItems from "./TechnologyItems";
+import TechnologyName from "./TechnologyName";
+import TechnologySpan from "./TechnologySpan";
 
 const containerVariants = {
   hidden: {
@@ -46,36 +53,15 @@ const TechnologyDetail = () => {
     >
       {technologyDetail && (
         <div className="md:px-[59.5px] lg:px-0 lg:flex lg:flex-row-reverse lg:justify-between lg:items-center lg:gap-8">
-          <div className="mt-8 mb-[34px] md:mt-[60px] md:mb-0 flex justify-center lg:min-w-[45%] lg:max-w[46%] lg:mt-[26px]">
-            <picture class="illustration">
-              <source
-                media="(min-width: 1024px)"
-                srcset={technologyDetail.images.portrait}
-              />
-              <img
-                src={technologyDetail.images.landscape}
-                alt={`Image ${technologyDetail.name}`}
-                loading="lazy"
-                className="min-w-[100vw] h-auto md:max-h-[572px] lg:min-w-0 lg:max-w-[515px] lg:max-h-[527px]"
-              />
-            </picture>
-          </div>
+          <TechnologyImage
+            name={TechnologyDetail.name}
+            images={technologyDetail.images}
+          />
           <div className="text-center md:mt-[56px] lg:max-w-[614px] lg:text-left lg:mt-0 self-center lg:flex lg:gap-4 lg:items-center xl:gap-20">
+            <TechnologyItems technologies={technologies} />
             <div>
-              <ul className="flex justify-center items-center gap-4 mb-[26px] md:mb-[44px] lg:justify-start lg:flex-col lg:mb-0 lg:gap-8">
-                {technologies.length > 0 &&
-                  technologies.map((technology, i) => (
-                    <TechnologyItem technology={technology} index={i} />
-                  ))}
-              </ul>
-            </div>
-            <div>
-              <p className="text-gray font-barlow-condensed mb-[9px] text-[14px] leading-[17px] tracking-[2.3625px] md:text-[16px] md:leading-[19.2px] md:tracking-[2.7px]">
-                THE TERMINOLOGY…
-              </p>
-              <h1 className="font-bellefair uppercase mb-[16px] text-[24px] leading-[27.5px] md:mb-2 md:text-[40px] md:leading-[46px] lg:mb-[14px] lg:text-[  ] lg:leading-[64px]">
-                {technologyDetail.name}
-              </h1>
+              <TechnologySpan />
+              <TechnologyName name={technologyDetail.name} />
               <TechnologyDescription
                 description={technologyDetail.description}
               />

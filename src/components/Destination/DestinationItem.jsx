@@ -1,18 +1,18 @@
+// React router dom
 import { NavLink } from "react-router-dom";
 
-const styles =
-  "inline-block uppercase pb-2 text-[14px] leading-[16.8px] tracking-[2.36px] border-b-[3px] border-[#fff0] md:text-[16px] md:leading-[19.2px] md:tracking-[2.7px] lg:leading-[19.2px] lg:hover:border-[#fff5]";
-
-const DestinationItem = ({ destination }) => {
+const DestinationItem = ({ name }) => {
   return (
-    <li key={destination.name}>
+    <li>
       <NavLink
-        to={`../${destination.name.toLowerCase()}`}
+        to={`../${name.toLowerCase()}`}
         className={({ isActive }) =>
-          `${styles} ${isActive ? "border-[#fff]" : ""}`
+          `inline-block uppercase pb-2 text-[14px] leading-[16.8px] tracking-[2.36px] border-b-[3px] border-[#fff0] md:text-[16px] md:leading-[19.2px] md:tracking-[2.7px] lg:leading-[19.2px] ${
+            isActive ? "border-[#fff]" : "lg:hover:border-[#fff5]"
+          }`
         }
       >
-        {destination.name}
+        {name}
       </NavLink>
     </li>
   );
